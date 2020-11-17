@@ -12,7 +12,7 @@
 <div *ngFor="let product of products">
   <h3>{{product.name}}</h3>
   <p>Price: {{product.price}}</p>
-  <p>stock: {{product.isStock}}</p>
+  <p [ngClass]="{'not-stock': !product.isStock}">stock: {{product.isStock}}</p>
 </div>
 
 <button (click)="addProduct()">Add product</button>
