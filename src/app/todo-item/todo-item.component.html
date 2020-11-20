@@ -1,0 +1,6 @@
+<div class="todo-item" [ngClass]="inputTodo.status ? 'todo-done' : 'todo-not-done'">
+  <h4>{{inputTodo.name}}</h4>
+  <p>{{inputTodo.date}}</p>
+  <button (click)="changeStatus()">Change Status</button>
+  <button (click)="deleteTodo()">Delete todo</button>
+</div>
