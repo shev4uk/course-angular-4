@@ -29,12 +29,12 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeStatusItem(i) {
+  changeStatusItem(i: number) {
     console.log(i);
     this.listTodo[i].status = !this.listTodo[i].status;
   }
 
-  deleteTodoItem(i) {
+  deleteTodoItem(i: number) {
     this.listTodo.splice(i, 1);
   }
 

@@ -1,3 +1,19 @@
+:host {
+  display: block;
+  background-color: azure;
+}
+// :host(.todo-done) {
+//   border-bottom: 5px solid green;
+// }
+// :host(.todo-not-done) {
+//   border-bottom: 5px solid red;
+// }
+
+:host-context(.dark) .todo-item {
+  background-color: #333;
+  color: #fff;
+}
+
 .todo-item {
   padding-left: 15px;
   border-left: 5px solid;

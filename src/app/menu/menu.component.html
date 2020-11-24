@@ -1,0 +1,5 @@
+<nav>
+  <ul>
+    <li *ngFor="let menu of menuHeader" (click)="onClickMenu(menu.url)">{{menu.name}}</li>
+  </ul>
+</nav>

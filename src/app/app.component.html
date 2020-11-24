@@ -1,3 +1,7 @@
+<app-menu [menuHeader]="menus" (changePage)="changePage($event)"></app-menu>
+
+<p #test>Test</p>
+
 <h2>{{title}}</h2>
 <p>{{showSomeText()}}</p>
 <p>{{count}}</p>
@@ -31,4 +35,6 @@
   {{number}}
 </div>
 
-<app-todo-list></app-todo-list>
+<div class="dark">
+  <app-todo-list></app-todo-list>
+</div>
