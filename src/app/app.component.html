@@ -1,0 +1,22 @@
+<p [appColor]="'#f0f'">Lorem ipsum dolor sit amet consectetur adipisicing elit. <ng-container *ngIf="true">
+  Quod optio nulla ab ipsum, nemo libero aut dolorem
+</ng-container> 
+tempore accusantium similique qui quam ut maiores deleniti architecto, sunt molestiae rerum consectetur?</p>
+
+<ng-container *ngIf="isVersion; else v2">
+  version 1
+</ng-container>
+<ng-template #v2>
+  version 2
+</ng-template>
+
+<ng-container *ngIf="isVersion">
+  version 1
+</ng-container>
+<ng-container *ngIf="!isVersion">
+  version 2
+</ng-container>
+
+
+
+<button appTooltip>Add</button>
