@@ -1,0 +1,33 @@
+<div>
+  {{nowDate}}
+</div>
+<div>
+  {{nowDate | date : 'medium'}}
+</div>
+<div>
+  {{nowDate | date : 'd/MM/YY'}}
+</div>
+<div>
+  Discount {{discount | percent}}
+</div>
+<div>
+  Price {{price | currency : 'UAH'}}
+</div>
+<div>
+  {{text | slice :0:20}}...
+</div>
+<div>
+  {{nowDate | date : 'MMMM dd-yyyy'}}
+</div>
+<button (click)="changeSort()">Sort</button>
+<div *ngFor="let user of users | sort : defaultSort">
+  <p>{{user.name}}</p>
+  <p>{{user.age}}</p>
+</div>
+
+<div>
+  {{size | round : 3}}
+</div>
+<div>
+  {{size | round}}
+</div>
