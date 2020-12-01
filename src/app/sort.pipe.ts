@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { User } from './user.model';
 
 @Pipe({
-  name: 'sort'
+  name: 'sort',
+  pure: false
 })
 export class SortPipe implements PipeTransform {
 
@@ -10,9 +11,9 @@ export class SortPipe implements PipeTransform {
     console.log(value, args);
     function sortArray(a: User, b: User): number {
       if (args[0] === 'desc') {
-        return b.age - a.age;
+        return +b.age - +a.age;
       } else {
-        return a.age - b.age;
+        return +a.age - +b.age;
       }
     }
     return value.sort(sortArray);

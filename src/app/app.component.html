@@ -20,9 +20,30 @@
   {{nowDate | date : 'MMMM dd-yyyy'}}
 </div>
 <button (click)="changeSort()">Sort</button>
-<div *ngFor="let user of users | sort : defaultSort">
-  <p>{{user.name}}</p>
-  <p>{{user.age}}</p>
+<input type="text" [(ngModel)]="name">{{name}}
+<form #addUserForm="ngForm" (ngSubmit)="addUser()">
+  <div class="form-row">
+    <input type="text" placeholder="Name" [(ngModel)]="userForm.name" name="name" #nameUser="ngModel" required autocomplete="off">
+    <p class="error-input" *ngIf="!nameUser.valid && nameUser.dirty">
+      Name is required
+    </p>
+  </div>
+  <div class="form-row">
+    <input type="number" placeholder="Age" min="18" maxlength="2" [(ngModel)]="userForm.age" name="age" required #age="ngModel">
+    <p class="error-input" *ngIf="age.errors?.required && age.dirty">
+      Age is required
+    </p>
+    <p class="error-input" *ngIf="age.errors?.maxlength">
+      maxlengtn = 2
+    </p>
+  </div>
+  <input type="submit" value="Add" [disabled]="!addUserForm.form.valid">
+</form>
+<div class="wrap-user">
+  <div *ngFor="let user of users | sort : defaultSort | search : name" class="item-user">
+    <p>{{user.name}}</p>
+    <p>{{user.age}}</p>
+  </div>
 </div>
 
 <div>

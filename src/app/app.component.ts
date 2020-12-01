@@ -16,19 +16,26 @@ export class AppComponent {
 
   price = 100;
 
+  name = '';
+
+  userForm = {
+    name: '',
+    age: ''
+  }
+
   text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta odit voluptatibus modi aspernatur voluptate tempore, iusto quaerat fugiat! Expedita eos dolores sed rem natus cumque aliquid esse eaque! Sequi, beatae.';
 
   users: User[] = [{
-    name: 'User 1',
+    name: 'Alice',
     age: 20
   }, {
-    name: 'User 2',
+    name: 'Bob',
     age: 32
   }, {
-    name: 'User 3',
+    name: 'John',
     age: 30
   }, {
-    name: 'User 4',
+    name: 'Barby',
     age: 15
   }];
 
@@ -38,4 +45,11 @@ export class AppComponent {
     this.defaultSort = this.defaultSort === 'asc' ? 'desc' : 'asc';
   }
 
+  addUser() {
+    this.users.push(this.userForm);
+    this.userForm = {
+      name: '',
+      age: ''
+    }
+  }
 }
