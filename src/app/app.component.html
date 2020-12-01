@@ -29,11 +29,11 @@
     </p>
   </div>
   <div class="form-row">
-    <input type="number" placeholder="Age" min="18" maxlength="2" [(ngModel)]="userForm.age" name="age" required #age="ngModel">
+    <input type="number" placeholder="Age" [(ngModel)]="userForm.age" name="age" required #age="ngModel" pattern="\d{2}">
     <p class="error-input" *ngIf="age.errors?.required && age.dirty">
       Age is required
     </p>
-    <p class="error-input" *ngIf="age.errors?.maxlength">
+    <p class="error-input" *ngIf="age.errors?.pattern">
       maxlengtn = 2
     </p>
   </div>
