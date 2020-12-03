@@ -2,13 +2,10 @@
   <div class="container">
     <form [formGroup]="formOrder" (ngSubmit)="createOrder()">
       <div class="form-group">
-        <label class="d-block">
-          Name
-          <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': form.name.errors && form.name.dirty}">
-          <div class="invalid-feedback" *ngIf="formOrder.get('name').errors?.required">
-            Name is required
-          </div>
-        </label>
+        <app-form-field-text [label]="'Name'" [name]="'name'" [group]="formOrder"></app-form-field-text>
+      </div>
+      <div class="form-group">
+        <app-form-field-text [label]="'Full name'" [name]="'fullName'" [group]="formOrder"></app-form-field-text>
       </div>
       <div class="form-group">
         <label class="d-block">
@@ -25,12 +22,12 @@
       <div class="form-group">
         <label class="d-block">
           Phone
-          <input type="text" class="form-control" formControlName="phone" [ngClass]="{'is-invalid': formOrder.controls.phone.errors && formOrder.controls.phone.dirty}">
+          <input type="text" [mask]="'(000) 000-0000'" class="form-control" formControlName="phone" [ngClass]="{'is-invalid': formOrder.controls.phone.errors && formOrder.controls.phone.dirty}">
           <div class="invalid-feedback" *ngIf="formOrder.get('phone').errors?.required">
             Phone is required
           </div>
-          <div class="invalid-feedback" *ngIf="formOrder.get('phone').errors?.maxlength">
-            Max length field is 10
+          <div class="invalid-feedback" *ngIf="formOrder.get('phone').errors?.minlength">
+            Min length field is 10
           </div>
         </label>
       </div>

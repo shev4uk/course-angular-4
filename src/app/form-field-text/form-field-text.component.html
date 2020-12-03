@@ -1,0 +1,11 @@
+<ng-container [formGroup]="group">
+  <label class="d-block">
+    {{label}}
+    <input type="text" class="form-control" formControlName="{{name}}" [ngClass]="{'is-invalid': group.get(name).errors && group.get(name).dirty}">
+    <div class="invalid-feedback">
+      <ng-container *ngIf="group.get(name).errors?.required">
+        {{name}} is required
+      </ng-container>
+    </div>
+  </label>
+</ng-container>

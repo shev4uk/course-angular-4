@@ -23,10 +23,25 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.formOrder = this.fb.group({
       name: ['', [Validators.required]],
+      fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.maxLength(10)]],
+      phone: ['', [Validators.required, Validators.minLength(10)]],
       delivery: ['', Validators.required],
       comment: ['']
+    });
+    this.setDefaultValueForm();
+  }
+
+  setDefaultValueForm() {
+    this.formOrder.patchValue({
+      name: 'Bob',
+      fullName: 'Bob Check',
+      email: 'test@fdgd.dsf',
+      phone: '382652574',
+      delivery: 'Nova Post'
+    });
+    Object.values(this.formOrder.controls).forEach(control => {
+      control.markAsDirty();
     });
   }
 
