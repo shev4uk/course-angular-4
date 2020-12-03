@@ -1,0 +1,61 @@
+<section>
+  <div class="container">
+    <form [formGroup]="formOrder" (ngSubmit)="createOrder()">
+      <div class="form-group">
+        <label class="d-block">
+          Name
+          <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': form.name.errors && form.name.dirty}">
+          <div class="invalid-feedback" *ngIf="formOrder.get('name').errors?.required">
+            Name is required
+          </div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="d-block">
+          Email
+          <input type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid': formOrder.controls.email.errors && formOrder.controls.email.dirty}">
+          <div class="invalid-feedback" *ngIf="formOrder.get('email').errors?.required">
+            Email is required
+          </div>
+          <div class="invalid-feedback" *ngIf="formOrder.get('email').errors?.email">
+            Invalid format email
+          </div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="d-block">
+          Phone
+          <input type="text" class="form-control" formControlName="phone" [ngClass]="{'is-invalid': formOrder.controls.phone.errors && formOrder.controls.phone.dirty}">
+          <div class="invalid-feedback" *ngIf="formOrder.get('phone').errors?.required">
+            Phone is required
+          </div>
+          <div class="invalid-feedback" *ngIf="formOrder.get('phone').errors?.maxlength">
+            Max length field is 10
+          </div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="d-block">
+          Delivery
+          <select class="form-control" formControlName="delivery"  [ngClass]="{'is-invalid': formOrder.controls.delivery.errors && formOrder.controls.delivery.dirty}">
+            <option [value]="delivery" *ngFor="let delivery of optionDelivery">
+              {{delivery}}
+            </option>
+          </select>
+          <div class="invalid-feedback" *ngIf="formOrder.get('delivery').errors?.required">
+            Delivery is required
+          </div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="d-block">
+          Comment
+          <textarea class="form-control" rows="5" formControlName="comment"></textarea>
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-primary" [disabled]="!formOrder.valid">
+      </div>
+    </form>
+  </div>
+</section>
