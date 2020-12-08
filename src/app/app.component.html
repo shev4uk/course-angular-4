@@ -1,0 +1,9 @@
+<button (click)="tabForm('login')">Login</button>
+<button (click)="tabForm('reg')">Registration</button>
+
+<div *ngIf="showForm === 'login'">
+  form login
+</div>
+<div *ngIf="showForm === 'reg'">
+  form registration
+</div>
