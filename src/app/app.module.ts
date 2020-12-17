@@ -11,17 +11,21 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
+import { AuthGuard } from './auth.guard';
+import { ButtonsModule } from './shared/components/buttons/buttons.module';
 
 const routes: Routes = [{
   path: 'home', component: HomeComponent
 }, {
   path: 'about', component: AboutComponent
 }, {
-  path: 'contact', component: ContactComponent
+  path: 'contact', component: ContactComponent, canActivate: [AuthGuard]
 }, {
   path: 'blog', component: BlogComponent
 }, {
   path: 'blog/:id', component: BlogSingleComponent
+}, {
+  path: 'service', loadChildren: () => import('./service/service.module').then(m => m.ServiceModule)
 }, {
   path: '', redirectTo: 'home', pathMatch: 'full'
 }, {
@@ -41,7 +45,8 @@ const routes: Routes = [{
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

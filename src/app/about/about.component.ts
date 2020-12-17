@@ -12,4 +12,8 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showModal(text: string) {
+    console.log(text);
+  }
+
 }
