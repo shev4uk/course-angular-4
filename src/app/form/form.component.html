@@ -1,0 +1,23 @@
+<form [formGroup]="searchForm" (ngSubmit)="searchByKeyword()">
+  <div class="form-element">
+    <mat-form-field class="example-form-field">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="text" formControlName="search">
+      <button type="button" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchForm.controls.search.setValue('')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="form-element">
+    <mat-checkbox formControlName="check">Check me</mat-checkbox>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Toppings</mat-label>
+      <mat-select formControlName="toppings">
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" [disabled]="!searchForm.valid">Send</button>
+</form>
