@@ -1,1 +1,9 @@
-<p>todo-single works!</p>
+<ng-container *ngIf="todo; else loading">
+  <h2>{{todo.name}}</h2>
+  <p>{{todo.description}}</p>
+  <p>Deadline: {{todo.createdAt | date}}</p>
+  <p>Priority: {{Priority[todo.priority]}}</p>
+</ng-container>
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

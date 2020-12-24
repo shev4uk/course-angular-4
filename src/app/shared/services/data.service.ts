@@ -18,4 +18,12 @@ export class DataService {
   getAllTodo(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.urlApi);
   }
+
+  getTodoById(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${this.urlApi}${id}`);
+  }
+
+  addNewTodo(todo: Todo): Observable<any> {
+    return this.http.post(this.urlApi, todo);
+  }
 }
