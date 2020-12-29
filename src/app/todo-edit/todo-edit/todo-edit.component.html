@@ -1,0 +1,4 @@
+<h2>Edit todo</h2>
+<ng-container *ngIf="todo">
+  <app-todo-form [todo]="todo" [textButton]="'Edit'" (sendForm)="editTodo($event)"></app-todo-form>
+</ng-container>

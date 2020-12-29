@@ -8,6 +8,9 @@ const routes: Routes = [{
     path: 'todo/add', loadChildren: () => import('./todo-add/todo-add.module').then(m => m.TodoAddModule)
   },
   {
+    path: 'todo/edit/:id', loadChildren: () => import('./todo-edit/todo-edit.module').then(m => m.TodoEditModule)
+  },
+  {
     path: 'todo/:id', loadChildren: () => import('./todo-single/todo-single.module').then(m => m.TodoSingleModule)
   },
   {
