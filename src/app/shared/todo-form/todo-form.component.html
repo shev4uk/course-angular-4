@@ -11,7 +11,7 @@
   <div class="form-group">
     <mat-form-field class="element-form">
       <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description" placeholder="Description" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"></textarea>
+      <textarea matInput formControlName="description" placeholder="Description" [matTextareaAutosize]=true [matAutosizeMinRows]="5" [matAutosizeMaxRows]="10"></textarea>
       <mat-error *ngIf="newTodo.controls.description.hasError('required')">
         Description is <strong>required</strong>
       </mat-error>
